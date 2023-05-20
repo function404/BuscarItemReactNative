@@ -8,14 +8,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    titleProduto: {
+    titleText: {
         marginTop: 7,
         fontSize: 17,
         fontWeight: 'bold',
     },
     content: {
         margin: 10,
-    }
+    },
+    title:{
+        fontSize: 22,
+    },
 });
 
 export default styles;

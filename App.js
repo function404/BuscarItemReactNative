@@ -2,9 +2,9 @@ import React from 'react';
 
 import RootNavigation from './src/index';
 
-/**
+/*
  * App component
- * @returns {JSX}
+ * @returns {JS}
  */
 export default function App() {
   return <RootNavigation />;

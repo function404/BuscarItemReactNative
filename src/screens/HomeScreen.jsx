@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 /*
  * Styles Component
@@ -25,7 +25,77 @@ export default function HomeScreen( {navigation} ) {
           navigation.navigate("buscarProduto");
         }}
       >
-        Buscar Produto
+        Buscar Produtos
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: "#00c2cc",
+          borderColor: "#fff",
+        }}
+        labelStyle={{ color: "#fff" }}
+        mode="outlined"
+        onPress={() => {
+          navigation.navigate("buscarPessoa");
+        }}
+      >
+        Buscar Pessoas
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: "#00c2cc",
+          borderColor: "#fff",
+        }}
+        labelStyle={{ color: "#fff" }}
+        mode="outlined"
+        onPress={() => {
+          navigation.navigate("buscarCarro");
+        }}
+      >
+        Buscar Carros
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: "#00c2cc",
+          borderColor: "#fff",
+        }}
+        labelStyle={{ color: "#fff" }}
+        mode="outlined"
+        onPress={() => {
+          navigation.navigate("buscarAnimal");
+        }}
+      >
+        Buscar Animais
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: "#00c2cc",
+          borderColor: "#fff",
+        }}
+        labelStyle={{ color: "#fff" }}
+        mode="outlined"
+        onPress={() => {
+          navigation.navigate("buscarFruta");
+        }}
+      >
+        Buscar Frutas
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: "#00c2cc",
+          borderColor: "#fff",
+        }}
+        labelStyle={{ color: "#fff" }}
+        mode="outlined"
+        onPress={() => {
+          navigation.navigate("buscarCor");
+        }}
+      >
+        Buscar Cores
       </Button>
     </View>
   );

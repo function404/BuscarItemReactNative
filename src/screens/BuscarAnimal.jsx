@@ -25,45 +25,44 @@ import { FlatList } from 'react-native-web';
     * Functional Component
     * @returns {JSX}
 */
-export default function buscarProduto({navigation}) {
+export default function buscarAnimal({ navigation }) {
     const [busca, setBusca] = useState('');
-    const [produtos, setProdutos] = useState([]);
+    const [Animal, setAnimal] = useState([]);
     
-    async function queryProducts(busca = null) {
+    async function queryAnimal(busca = null) {
         try{
-            const ref = collection(db, 'produto');
-            const queryRef = query(ref, where('nomeDoProduto', '==', busca));
+            const ref = collection(db, 'animal');
+            const queryRef = query(ref, where('nomeDoAnimal', '==', busca));
             const querySnapshot = await getDocs(queryRef);
             
-            const produtos = [];
+            const Animal = [];
             querySnapshot.forEach((doc) => {
-                produtos.push(doc.data());
+                Animal.push(doc.data());
             });
 
-            setProdutos(produtos);
+            setAnimal(Animal);
         }catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        queryProducts(busca);
+        queryAnimal(busca);
     }, [busca]);
 
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.title}>Pesquise pelo nome dos produtos</Text>
+                <Text style={styles.title}>Pesquise pelo nome dos Animais</Text>
             </View>
             <View>
-                <TextInput label='Nome do Produto' value={busca} onChangeText={setBusca} mode='outlined' />
+                <TextInput label='Nome do Animal' value={busca} onChangeText={setBusca} mode='outlined'/>
             </View>
             <View>
-                <FlatList data={produtos} renderItem={({item}) => (
+                <FlatList data={Animal} renderItem={({item}) => (
                     <View style={styles.content}>
-                        <Text style={styles.titleText}>Nome do Produto: {item.nomeDoProduto}</Text> {/* No app pesquisar por Copo e Mouse */}
-                        <Text style={styles.titleText}>Quantidade do Produto: {item.quantidadeDeProduto}</Text>
-                        <Text style={styles.titleText}>Preço do Produto: {item.precoDoProduto}</Text>
+                        <Text style={styles.titleText}>Nome do Animal: {item.nomeDoAnimal}</Text> {/* No app pesquisar por Pato e Falcão-peregrino */}
+                        <Text style={styles.titleText}>Classe do Animal: {item.classeDoAnimal}</Text>
                     </View>
                 )} key={(item) => item.id} />
             </View>
