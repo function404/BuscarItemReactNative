@@ -25,7 +25,7 @@ import { FlatList } from 'react-native-web';
     * Functional Component
     * @returns {JSX}
 */
-export default function buscarCarros({ navigation }) {
+export default function buscarCarros() {
     const [busca, setBusca] = useState('');
     const [Carros, setCarros] = useState([]);
     

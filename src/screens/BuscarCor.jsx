@@ -25,7 +25,7 @@ import { FlatList } from 'react-native-web';
     * Functional Component
     * @returns {JSX}
 */
-export default function buscarCor({ navigation }) {
+export default function buscarCor() {
     const [busca, setBusca] = useState('');
     const [Cor, setCor] = useState([]);
     

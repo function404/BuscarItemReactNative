@@ -25,7 +25,7 @@ import { FlatList } from 'react-native-web';
     * Functional Component
     * @returns {JSX}
 */
-export default function buscarAnimal({ navigation }) {
+export default function buscarAnimal() {
     const [busca, setBusca] = useState('');
     const [Animal, setAnimal] = useState([]);
     

@@ -25,7 +25,7 @@ import { FlatList } from 'react-native-web';
     * Functional Component
     * @returns {JSX}
 */
-export default function buscarProduto({navigation}) {
+export default function buscarProduto() {
     const [busca, setBusca] = useState('');
     const [produtos, setProdutos] = useState([]);
     

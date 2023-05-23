@@ -25,13 +25,13 @@ export default function RootNavigation() {
     return(
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeScreen} />
-                <Stack.Screen name='buscarProduto' component={buscarProduto} />
-                <Stack.Screen name='buscarPessoa' component={buscarPessoas}/>
-                <Stack.Screen name='buscarCarro' component={buscarCarros}/>
-                <Stack.Screen name='buscarAnimal' component={buscarAnimal}/>
-                <Stack.Screen name='buscarFruta' component={buscarFruta}/>
-                <Stack.Screen name='buscarCor' component={buscarCor}/>
+                <Stack.Screen name="Início" component={HomeScreen} />
+                <Stack.Screen name='Buscar Produto' component={buscarProduto} />
+                <Stack.Screen name='Buscar Pessoa' component={buscarPessoas}/>
+                <Stack.Screen name='Buscar Carro' component={buscarCarros}/>
+                <Stack.Screen name='Buscar Animal' component={buscarAnimal}/>
+                <Stack.Screen name='Buscar Fruta' component={buscarFruta}/>
+                <Stack.Screen name='Buscar Cor' component={buscarCor}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
