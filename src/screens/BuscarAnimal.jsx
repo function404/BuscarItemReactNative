@@ -53,7 +53,7 @@ export default function buscarAnimal() {
     return (
         <View style={styles.container}>
             <View style={styles.main}>
-                <Text style={styles.title}>Pesquise pelo nome dos Animal</Text>
+                <Text style={styles.title}>Pesquise pelo nome dos Animais</Text>
                 <View style={styles.backInfo}>
                     <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
                     <Text>• Pato</Text>
