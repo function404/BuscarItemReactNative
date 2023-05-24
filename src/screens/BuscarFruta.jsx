@@ -56,7 +56,14 @@ export default function buscarFruta() {
                 <Text style={styles.title}>Pesquise pelo nome das Frutas</Text>
             </View>
             <View>
-                <TextInput label='Nome da Fruta' value={busca} onChangeText={setBusca} mode='outlined' />
+                <TextInput theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#00C2CC",
+                        onSurfaceVariant: "#000",
+                    }}
+                    
+                } label='Nome da Fruta' value={busca} onChangeText={setBusca} mode='outlined'  outlineColor="#00C2CC" />
             </View>
             <View>
                 <FlatList data={Fruta} renderItem={({item}) => (

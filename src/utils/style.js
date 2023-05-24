@@ -4,9 +4,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f4f4f4',
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
     },
     titleText: {
         marginTop: 7,
@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize: 22,
+        margin: 30,
+        borderBottomWidth: 2,
+        borderBottomColor: '#00c2cc',
     },
 
     divHome:{

@@ -56,7 +56,14 @@ export default function buscarCor() {
                 <Text style={styles.title}>Pesquise pelo nome das Cores</Text>
             </View>
             <View>
-                <TextInput label='Nome da Cor' value={busca} onChangeText={setBusca} mode='outlined'/>
+                <TextInput theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#00C2CC",
+                        onSurfaceVariant: "#000",
+                    }}
+                    
+                } label='Nome da Cor' value={busca} onChangeText={setBusca} mode='outlined'  outlineColor="#00C2CC" />
             </View>
             <View>
                 <FlatList data={Cor} renderItem={({item}) => (

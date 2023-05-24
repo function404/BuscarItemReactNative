@@ -18,7 +18,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
     * @returns {object}
 */
 import styles from '../utils/style';
-import { TextInput } from 'react-native-paper';
+import { TextInput, MD3LightTheme as DefaultTheme, PaperProvider } from 'react-native-paper';
 import { FlatList } from 'react-native-web';
 
 /*
@@ -50,13 +50,21 @@ export default function buscarProduto() {
         queryProducts(busca);
     }, [busca]);
 
+
     return (
         <View style={styles.container}>
             <View>
                 <Text style={styles.title}>Pesquise pelo nome dos produtos</Text>
             </View>
             <View>
-                <TextInput label='Nome do Produto' value={busca} onChangeText={setBusca} mode='outlined' />
+                <TextInput  theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#00C2CC",
+                        onSurfaceVariant: "#000",
+                    }}
+                    
+                } label='Nome do Produto' value={busca} onChangeText={setBusca} mode='outlined' outlineColor="#00C2CC" />
             </View>
             <View>
                 <FlatList data={produtos} renderItem={({item}) => (

@@ -56,7 +56,14 @@ export default function buscarPessoas() {
                 <Text style={styles.title}>Pesquise pelo nome das pessoas</Text>
             </View>
             <View>
-                <TextInput label='Nome da Pessoa' value={busca} onChangeText={setBusca} mode='outlined' />
+                <TextInput theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#00C2CC",
+                        onSurfaceVariant: "#000",
+                    }}
+                    
+                } label='Nome da Pessoa' value={busca} onChangeText={setBusca} mode='outlined'  outlineColor="#00C2CC" />
             </View>
             <View>
                 <FlatList data={Pessoas} renderItem={({item}) => (

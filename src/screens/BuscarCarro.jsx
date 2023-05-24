@@ -56,7 +56,14 @@ export default function buscarCarros() {
                 <Text style={styles.title}>Pesquise pelo nome dos carros</Text>
             </View>
             <View>
-                <TextInput label='Nome da Carros' value={busca} onChangeText={setBusca} mode='outlined'/>
+                <TextInput theme={
+                    {colors: {
+                        placeholder: "#fff",
+                        primary: "#00C2CC",
+                        onSurfaceVariant: "#000",
+                    }}
+                    
+                } label='Nome da Carros' value={busca} onChangeText={setBusca} mode='outlined' outlineColor="#00C2CC" />
             </View>
             <View>
                 <FlatList data={Carros} renderItem={({item}) => (
