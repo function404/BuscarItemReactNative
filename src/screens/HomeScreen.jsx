@@ -15,7 +15,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.divHome}>
-        <Text style={styles.tilteHome}>Páginas de buscas</Text>
+        <Text style={styles.tilteHome}>Páginas de buscas 👌</Text>
       </View>
       <View>
         <Button
