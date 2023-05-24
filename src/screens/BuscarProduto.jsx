@@ -53,10 +53,15 @@ export default function buscarProduto() {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.main}>
                 <Text style={styles.title}>Pesquise pelo nome dos produtos</Text>
+                <View style={styles.backInfo}>
+                    <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
+                    <Text>• Mouse</Text>
+                    <Text>• Copo</Text>
+                </View>
             </View>
-            <View>
+            <View style={{marginTop: 10,}}>
                 <TextInput  theme={
                     {colors: {
                         placeholder: "#fff",
@@ -69,7 +74,7 @@ export default function buscarProduto() {
             <View>
                 <FlatList data={produtos} renderItem={({item}) => (
                     <View style={styles.content}>
-                        <Text style={styles.titleText}>Nome do Produto: {item.nomeDoProduto}</Text> {/* No app pesquisar por Copo e Mouse */}
+                        <Text style={styles.titleText}>Nome do Produto: {item.nomeDoProduto}</Text>
                         <Text style={styles.titleText}>Quantidade do Produto: {item.quantidadeDeProduto}</Text>
                         <Text style={styles.titleText}>Preço do Produto: {item.precoDoProduto}</Text>
                     </View>

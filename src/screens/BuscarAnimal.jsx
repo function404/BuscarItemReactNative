@@ -52,10 +52,15 @@ export default function buscarAnimal() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.title}>Pesquise pelo nome dos Animais</Text>
+            <View style={styles.main}>
+                <Text style={styles.title}>Pesquise pelo nome dos Animal</Text>
+                <View style={styles.backInfo}>
+                    <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
+                    <Text>• Pato</Text>
+                    <Text>• Falcão-peregrino</Text>
+                </View>
             </View>
-            <View>
+            <View style={{marginTop: 10,}}>
                 <TextInput theme={
                     {colors: {
                         placeholder: "#fff",
@@ -68,7 +73,7 @@ export default function buscarAnimal() {
             <View>
                 <FlatList data={Animal} renderItem={({item}) => (
                     <View style={styles.content}>
-                        <Text style={styles.titleText}>Nome do Animal: {item.nomeDoAnimal}</Text> {/* No app pesquisar por Pato e Falcão-peregrino */}
+                        <Text style={styles.titleText}>Nome do Animal: {item.nomeDoAnimal}</Text>
                         <Text style={styles.titleText}>Classe do Animal: {item.classeDoAnimal}</Text>
                     </View>
                 )} key={(item) => item.id} />

@@ -52,10 +52,15 @@ export default function buscarCor() {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.main}>
                 <Text style={styles.title}>Pesquise pelo nome das Cores</Text>
+                <View style={styles.backInfo}>
+                    <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
+                    <Text>• Verde</Text>
+                    <Text>• Branco</Text>
+                </View>
             </View>
-            <View>
+            <View style={{marginTop: 10,}}>
                 <TextInput theme={
                     {colors: {
                         placeholder: "#fff",
@@ -68,7 +73,7 @@ export default function buscarCor() {
             <View>
                 <FlatList data={Cor} renderItem={({item}) => (
                     <View style={styles.content}>
-                         <Text style={styles.titleText}>Nome da cor: {item.nomeDaCor}</Text>  {/* No app pesquisar por Verde e Branco  */}
+                         <Text style={styles.titleText}>Nome da cor: {item.nomeDaCor}</Text>
                         <Text style={styles.titleText}>RGB da Cor: {item.rgbDaCor}</Text>
                     </View>
                 )} key={(item) => item.id} />

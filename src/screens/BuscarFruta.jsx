@@ -52,10 +52,15 @@ export default function buscarFruta() {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.main}>
                 <Text style={styles.title}>Pesquise pelo nome das Frutas</Text>
+                <View style={styles.backInfo}>
+                    <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
+                    <Text>• Kiwi</Text>
+                    <Text>• Banana</Text>
+                </View>
             </View>
-            <View>
+            <View style={{marginTop: 10,}}>
                 <TextInput theme={
                     {colors: {
                         placeholder: "#fff",
@@ -68,7 +73,7 @@ export default function buscarFruta() {
             <View>
                 <FlatList data={Fruta} renderItem={({item}) => (
                     <View style={styles.content}>
-                         <Text style={styles.titleText}>Nome da Fruta: {item.nomeDaFruta}</Text> {/* No app pesquisar por Kiwi e Banana */}
+                         <Text style={styles.titleText}>Nome da Fruta: {item.nomeDaFruta}</Text>
                         <Text style={styles.titleText}>Preço da Fruta: {item.precoDaFruta}</Text>
                     </View>
                 )} key={(item) => item.id} />

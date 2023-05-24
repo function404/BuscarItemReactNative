@@ -52,10 +52,15 @@ export default function buscarCarros() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.title}>Pesquise pelo nome dos carros</Text>
+           <View style={styles.main}>
+                <Text style={styles.title}>Pesquise pelo nome dos Carros</Text>
+                <View style={styles.backInfo}>
+                    <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
+                    <Text>• GTR-34</Text>
+                    <Text>• Supra MK4</Text>
+                </View>
             </View>
-            <View>
+            <View style={{marginTop: 10,}}>
                 <TextInput theme={
                     {colors: {
                         placeholder: "#fff",

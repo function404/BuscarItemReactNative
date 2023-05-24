@@ -6,12 +6,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#f4f4f4',
         alignItems: 'center',
-        // justifyContent: 'center',
+        justifyContent: 'center',
     },
     titleText: {
         marginTop: 7,
         fontSize: 17,
-        fontWeight: 'bold',
+        fontWeight: '600',
+        textAlign: 'center',
     },
     content: {
         margin: 10,
@@ -19,8 +20,26 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 22,
         margin: 30,
+        alignItems: 'center',
         borderBottomWidth: 2,
         borderBottomColor: '#00c2cc',
+    },
+
+  
+    backInfo:{
+        padding: 10,
+        textAlign: 'center',
+        backgroundColor: '#fff',
+        border: '1px solid #00c2cc',
+        flex: 1,
+        width: '50%',
+        margin: 'auto',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    backInfoTitle:{
+        fontSize: 17,
+        fontWeight: '600',
     },
 
     divHome:{
@@ -31,7 +50,8 @@ const styles = StyleSheet.create({
     tilteHome:{
         fontSize: 22,
         padding: 10,
-        fontWeight: 'bold',
+        fontWeight: '600',
+        alignItems: 'center',
         borderColor: '#00c2cc',
         borderTopWidth: 2,
         borderTopRightRadius: 10,

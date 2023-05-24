@@ -52,10 +52,15 @@ export default function buscarPessoas() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.title}>Pesquise pelo nome das pessoas</Text>
+           <View style={styles.main}>
+                <Text style={styles.title}>Pesquise pelo nome das Pessoas</Text>
+                <View style={styles.backInfo}>
+                    <Text style={styles.backInfoTitle}>Pesquisar por:</Text>
+                    <Text>• Lincoln</Text>
+                    <Text>• Rogério</Text>
+                </View>
             </View>
-            <View>
+            <View style={{marginTop: 10,}}>
                 <TextInput theme={
                     {colors: {
                         placeholder: "#fff",
@@ -68,7 +73,7 @@ export default function buscarPessoas() {
             <View>
                 <FlatList data={Pessoas} renderItem={({item}) => (
                     <View style={styles.content}>
-                         <Text style={styles.titleText}>Nome da Pessoa: {item.nomeDaPessoa}</Text> {/* No app pesquisar por Lincoln e Rogério */}
+                         <Text style={styles.titleText}>Nome da Pessoa: {item.nomeDaPessoa}</Text>
                         <Text style={styles.titleText}>Idade da Pessoa: {item.idadeDaPessoa}</Text>
                     </View>
                 )} key={(item) => item.id} />
