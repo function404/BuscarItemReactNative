@@ -73,7 +73,7 @@ export default function buscarCarros() {
             <View>
                 <FlatList data={Carros} renderItem={({item}) => (
                     <View style={styles.content}>
-                         <Text style={styles.titleText}>Nome do Carro: {item.nomeDoCarro}</Text> {/*No app pesquisar por GTR-34 e Supra MK4 */}
+                        <Text style={styles.titleText}>Nome do Carro: {item.nomeDoCarro}</Text>
                         <Text style={styles.titleText}>Marca do Carro: {item.marcaDoCarro}</Text>
                     </View>
                 )} key={(item) => item.id} />
