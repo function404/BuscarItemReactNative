@@ -13,6 +13,7 @@ Projeto desenvolvido no Técnico em Informática para Internet
 ## 🛠️ Ferramentas Utilizadas
 
 - React Native
+- Expo Go
 - JavaScript
 - Node.js
 - CSS
