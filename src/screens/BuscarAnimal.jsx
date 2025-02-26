@@ -28,27 +28,39 @@ import { FlatList } from 'react-native-web';
 export default function buscarAnimal() {
     const [busca, setBusca] = useState('');
     const [Animal, setAnimal] = useState([]);
-    
-    async function queryAnimal(busca = null) {
-        try{
+    const [todosAnimais, setTodosAnimais] = useState([]);
+
+    async function fetchAnimais() {
+        try {
             const ref = collection(db, 'animal');
-            const queryRef = query(ref, where('nomeDoAnimal', '==', busca));
-            const querySnapshot = await getDocs(queryRef);
-            
-            const Animal = [];
+            const querySnapshot = await getDocs(ref);
+
+            const listaAnimais = [];
             querySnapshot.forEach((doc) => {
-                Animal.push(doc.data());
+                listaAnimais.push(doc.data());
             });
 
-            setAnimal(Animal);
-        }catch (error) {
+            setTodosAnimais(listaAnimais);
+        } catch (error) {
             console.log(error);
         }
-    };
+    }
 
     useEffect(() => {
-        queryAnimal(busca);
-    }, [busca]);
+        fetchAnimais();
+    }, []);
+
+    useEffect(() => {
+        if (busca.trim() === '') {
+            setAnimal([]);
+        } else {
+            const buscaLower = busca.toLowerCase();
+            const resultados = todosAnimais.filter((item) =>
+                item.nomeDoAnimal.toLowerCase().includes(buscaLower)
+            );
+            setAnimal(resultados);
+        }
+    }, [busca, todosAnimais]);
 
     return (
         <View style={styles.container}>

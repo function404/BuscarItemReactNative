@@ -28,27 +28,40 @@ import { FlatList } from 'react-native-web';
 export default function buscarPessoas() {
     const [busca, setBusca] = useState('');
     const [Pessoas, setPessoas] = useState([]);
+    const [todosPessoas, setTodosPessoas] = useState([]);
     
-    async function queryPessoas(busca = null) {
+    async function fetchPessoas() {
         try{
             const ref = collection(db, 'pessoa');
-            const queryRef = query(ref, where('nomeDaPessoa', '==', busca));
-            const querySnapshot = await getDocs(queryRef);
+            const querySnapshot = await getDocs(ref);
             
-            const Pessoas = [];
+            const listaPessoas = [];
             querySnapshot.forEach((doc) => {
-                Pessoas.push(doc.data());
+                listaPessoas.push(doc.data());
             });
 
-            setPessoas(Pessoas);
+            setTodosPessoas(listaPessoas);
         }catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        queryPessoas(busca);
+        fetchPessoas(busca);
     }, [busca]);
+
+    useEffect(() => {
+        if (busca.trim() === '') {
+            setPessoas([]);
+        } else {
+            const buscaLower = busca.toLowerCase();
+            const resultados = todosPessoas.filter((item) =>
+                item.nomeDaPessoa.toLowerCase().includes(buscaLower)
+            );
+
+            setPessoas(resultados);
+        }
+    }, [busca, todosPessoas]);
 
     return (
         <View style={styles.container}>

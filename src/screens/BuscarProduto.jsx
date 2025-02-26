@@ -28,28 +28,40 @@ import { FlatList } from 'react-native-web';
 export default function buscarProduto() {
     const [busca, setBusca] = useState('');
     const [produtos, setProdutos] = useState([]);
+    const [todosProdutos, setTodosProdutos] = useState([]);
     
-    async function queryProducts(busca = null) {
+    async function fetchProdutos() {
         try{
             const ref = collection(db, 'produto');
-            const queryRef = query(ref, where('nomeDoProduto', '==', busca));
-            const querySnapshot = await getDocs(queryRef);
+            const querySnapshot = await getDocs(ref);
             
-            const produtos = [];
+            const listaProdutos = [];
             querySnapshot.forEach((doc) => {
-                produtos.push(doc.data());
+                listaProdutos.push(doc.data());
             });
 
-            setProdutos(produtos);
+            setTodosProdutos(listaProdutos);
         }catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        queryProducts(busca);
+        fetchProdutos(busca);
     }, [busca]);
 
+    useEffect(() => {
+        if (busca.trim() === '') {
+            setProdutos([]);
+        } else {
+            const buscaLower = busca.toLowerCase();
+            const resultados = todosProdutos.filter((item) =>
+                item.nomeDoProduto.toLowerCase().includes(buscaLower)
+            );
+
+            setProdutos(resultados);
+        }
+    }, [busca, todosProdutos]);
 
     return (
         <View style={styles.container}>

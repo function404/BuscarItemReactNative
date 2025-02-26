@@ -28,27 +28,39 @@ import { FlatList } from 'react-native-web';
 export default function buscarCor() {
     const [busca, setBusca] = useState('');
     const [Cor, setCor] = useState([]);
+    const [todosCor, setTodosCor] = useState([]);
     
-    async function queryCor(busca = null) {
+    async function fetchCor() {
         try{
             const ref = collection(db, 'cor');
-            const queryRef = query(ref, where('nomeDaCor', '==', busca));
-            const querySnapshot = await getDocs(queryRef);
+            const querySnapshot = await getDocs(ref);
             
-            const Cor = [];
+            const listaCor = [];
             querySnapshot.forEach((doc) => {
-                Cor.push(doc.data());
+                listaCor.push(doc.data());
             });
 
-            setCor(Cor);
+            setTodosCor(listaCor);
         }catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        queryCor(busca);
+        fetchCor(busca);
     }, [busca]);
+
+    useEffect(() => {
+        if (busca.trim() === '') {
+            setCor([]);
+        } else {
+            const buscaLower = busca.toLowerCase();
+            const resultados = todosCor.filter((item) =>
+                item.nomeDaCor.toLowerCase().includes(buscaLower)
+            );
+            setCor(resultados);
+        }
+    }, [busca, todosCor]);
 
     return (
         <View style={styles.container}>

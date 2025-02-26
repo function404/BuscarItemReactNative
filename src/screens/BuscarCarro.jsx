@@ -28,26 +28,38 @@ import { FlatList } from 'react-native-web';
 export default function buscarCarros() {
     const [busca, setBusca] = useState('');
     const [Carros, setCarros] = useState([]);
+    const [todosCarros, setTodosCarros] = useState([]);
     
-    async function queryCarros(busca = null) {
+    async function fetchCarros() {
         try{
             const ref = collection(db, 'carro');
-            const queryRef = query(ref, where('nomeDoCarro', '==', busca));
-            const querySnapshot = await getDocs(queryRef);
+            const querySnapshot = await getDocs(ref);
             
-            const Carros = [];
+            const listaCarros = [];
             querySnapshot.forEach((doc) => {
-                Carros.push(doc.data());
+                listaCarros.push(doc.data());
             });
 
-            setCarros(Carros);
+            setTodosCarros(listaCarros);
         }catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        queryCarros(busca);
+        fetchCarros();
+    }, []);
+
+    useEffect(() => {
+        if (busca.trim() === '') {
+            setCarros([]);
+        } else {
+            const buscaLower = busca.toLowerCase();
+            const resultados = todosCarros.filter((item) =>
+                item.nomeDoCarro.toLowerCase().includes(buscaLower)
+            );
+            setCarros(resultados);
+        }
     }, [busca]);
 
     return (
