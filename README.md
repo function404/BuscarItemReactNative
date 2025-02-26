@@ -8,7 +8,7 @@
 
 ## ℹ️ Sobre o Projeto
 
-Projeto desenvolvido no Técnico em Informática para Internet
+Projeto desenvolvido no Técnico em Informática para Internet no ano de 2023
 
 ## 🛠️ Ferramentas Utilizadas
 
